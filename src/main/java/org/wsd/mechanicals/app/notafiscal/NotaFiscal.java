@@ -9,12 +9,12 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.data.annotation.Id;
 import org.wsd.mechanicals.app.contato.Contato;
 import org.wsd.mechanicals.app.pedido.Faturamento;
 import org.wsd.mechanicals.app.pedido.Pedido;
