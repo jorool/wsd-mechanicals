@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.wsd.mechanicals.app.pedido.Pedido;
-import org.wsd.mechanicals.app.pedido.integration.PedidoGateway;
 import org.wsd.mechanicals.app.pedido.repository.PedidoRepository;
 import org.wsd.mechanicals.app.pedido.sequencial.SequencialPedidoRepository;
 
@@ -19,9 +18,6 @@ public class PedidoFacade {
 
 	@Autowired
 	private PedidoRepository pedidoRepository;
-
-	@Autowired
-	private PedidoGateway pedidoGateway;
 
 	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	public Pedido novoPedido() {
@@ -37,9 +33,7 @@ public class PedidoFacade {
 	@Transactional
 	public Pedido save(Pedido pedido) {
 		checkNotNull(pedido);
-		Pedido saved = pedidoRepository.save(pedido);
-		pedidoGateway.criado(saved);
-		return saved;
+		return pedidoRepository.save(pedido);
 	}
 
 }

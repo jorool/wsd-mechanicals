@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.wsd.mechanicals</groupId>
-	<artifactId>mechanicals</artifactId>
+	<artifactId>wsd-mechanicals</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<description>WSD Mechanicals</description>
@@ -40,7 +40,6 @@
 		<slf4j.version>1.6.1</slf4j.version>
 		<spring.version>3.1.1.RELEASE</spring.version>
 		<spring-data-jpa.version>1.2.0.RC1</spring-data-jpa.version>
-		<spring-data-mongodb.version>1.1.0.RC1</spring-data-mongodb.version>
 		<spring-integration.version>2.1.0.RELEASE</spring-integration.version>
 		<spring-security.version>3.1.0.RELEASE</spring-security.version>
 		<spring-webflow.version>2.3.1.RELEASE</spring-webflow.version>
@@ -312,17 +311,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- Spring Data MongoDB -->
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-mongodb</artifactId>
-			<version>${spring-data-mongodb.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-mongodb-cross-store</artifactId>
-			<version>${spring-data-mongodb.version}</version>
-		</dependency>
 		<!-- QueryDSL -->
 		<dependency>
 			<groupId>com.mysema.querydsl</groupId>
@@ -333,11 +321,6 @@
 		<dependency>
 			<groupId>com.mysema.querydsl</groupId>
 			<artifactId>querydsl-jpa</artifactId>
-			<version>${querydsl.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.mysema.querydsl</groupId>
-			<artifactId>querydsl-mongodb</artifactId>
 			<version>${querydsl.version}</version>
 		</dependency>
 		<!-- Spring Integration -->
@@ -484,8 +467,6 @@
 							<groupId>org.springframework</groupId>
 							<artifactId>spring-aspects</artifactId>
 						</aspectLibrary>
-						<!-- <aspectLibrary> <groupId>org.springframework.data</groupId> <artifactId>spring-data-mongodb-cross-store</artifactId>
-							</aspectLibrary> -->
 					</aspectLibraries>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
@@ -567,22 +548,7 @@
 									target/generated-sources/java
 								</outputDirectory>
 								<processor>
-								</processor>
 									com.mysema.query.apt.jpa.JPAAnnotationProcessor
-							</configuration>
-						</execution>
-						<execution>
-							<id>mongo</id>
-							<phase>generate-sources</phase>
-							<goals>
-								<goal>process</goal>
-							</goals>
-							<configuration>
-								<outputDirectory>
-									target/generated-sources/java
-								</outputDirectory>
-								<processor>
-									org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor
 								</processor>
 							</configuration>
 						</execution>

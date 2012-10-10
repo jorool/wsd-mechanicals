@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 import org.wsd.mechanicals.app.pedido.Pedido;
+import org.wsd.mechanicals.app.pedido.QPedido;
 import org.wsd.mechanicals.config.root.WSDConfig;
 
 @ActiveProfiles("teste")

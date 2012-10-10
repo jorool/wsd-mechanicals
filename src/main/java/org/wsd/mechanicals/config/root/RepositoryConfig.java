@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -17,8 +16,7 @@ import org.wsd.mechanicals.app.pedido.Pedido;
 import org.wsd.mechanicals.app.produto.Produto;
 import org.wsd.mechanicals.app.seguranca.Usuario;
 
-@EnableJpaRepositories(basePackageClasses = {Usuario.class, Produto.class, Pedido.class})
-@EnableMongoRepositories(basePackageClasses = {NotaFiscal.class, Contato.class})
+@EnableJpaRepositories(basePackageClasses = {Usuario.class, Produto.class, Pedido.class, NotaFiscal.class, Contato.class})
 @EnableTransactionManagement(proxyTargetClass = true)
 @Configuration
 @ImportResource("classpath*:META-INF/spring/applicationContext-data.xml")

@@ -6,10 +6,15 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.wsd.mechanicals.app.contato.Contato;
 import org.wsd.mechanicals.app.pedido.Faturamento;
 import org.wsd.mechanicals.app.pedido.Pedido;
@@ -20,19 +25,25 @@ import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
-@Document
+@Entity
 public class NotaFiscal implements Serializable, PedidoObserver {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String id;
+	@GeneratedValue
+	private Long id;
 
+	@Version
+	Integer version;
+	
 	@NotNull
 	private Integer numero;
 
+	@OneToMany(mappedBy = "notaFiscal", cascade = CascadeType.ALL)
 	private List<Item> itens = Lists.newLinkedList();
 
+	@ManyToOne
 	private Contato contato;
 
 	NotaFiscal() {
@@ -99,7 +110,7 @@ public class NotaFiscal implements Serializable, PedidoObserver {
 		System.out.println("Nota Fiscal Faturada");
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 

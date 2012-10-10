@@ -4,20 +4,27 @@ import static com.google.common.base.Preconditions.checkArgument;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Version;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.google.common.base.Strings;
 
-@Document
+@Entity
 public class Contato implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String id;
+	@GeneratedValue
+	private Long id;
 
+	@Version
+	Integer version;
+	
 	private String nome;
 
 	private Contato() {
@@ -37,7 +44,7 @@ public class Contato implements Serializable {
 		return new Contato(nome);
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 

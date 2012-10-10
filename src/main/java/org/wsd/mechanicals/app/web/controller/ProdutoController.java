@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.wsd.mechanicals.app.produto.Produto;
+import org.wsd.mechanicals.app.produto.QProduto;
 import org.wsd.mechanicals.app.produto.repository.ProdutoRepository;
 
 @Controller
