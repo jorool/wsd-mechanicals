@@ -1,0 +1,14 @@
+/.classpath
+/.clover
+/.factorypath
+/.project
+/.settings
+/.springBeans
+/.metadata
+/target
+/bin
+/*.tmp
+/.settings
+.classpath
+.project
+rebel.xml
