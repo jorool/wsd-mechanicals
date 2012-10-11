@@ -24,7 +24,7 @@
 		base-path="/WEB-INF/flows">
 		<webflow:flow-location-pattern value="/**/*-flow.xml" />
 	</webflow:flow-registry>
-
+	
 	<faces:flow-builder-services id="facesFlowBuilderServices" development="true" />
 
 	<!-- Installs a listener that creates and releases the FacesContext for each request. -->
