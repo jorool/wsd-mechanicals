@@ -7,6 +7,8 @@ public enum Permissao implements GrantedAuthority {
 
 	ROLE_USER,
 
+	ROLE_ADMIN,
+	
 	ROLE_EDITAR_PEDIDO;
 
 	@Override
