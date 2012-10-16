@@ -21,12 +21,18 @@
 			<p:megaMenu>
 				<p:submenu label="Cadastros" >
 					<p:column>
-						<p:submenu label="Oi">
-							<p:menuitem value="Teste" url="#"/>
+						<p:submenu label="Financeiro">
+							<p:menuitem value="Clientes e Fornecedores" action="cliente" />
 						</p:submenu>
 					</p:column>
 				</p:submenu>
 				<p:submenu label="Orçamento" >
+					<p:column>
+						<p:submenu>
+							<p:menuitem value="Novo Orçamento" />
+							<p:menuitem value="Pesquisar Orçamento" />
+						</p:submenu>
+					</p:column>
 				</p:submenu>
 				<p:submenu label="Nota Fiscal"/>
 				<p:menuitem value="Sair" url="spring/logout" />
