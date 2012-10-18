@@ -8,12 +8,6 @@
 	
 	<view-state id="index">
 	</view-state>
-	
-	<subflow-state id="notaFiscal" subflow="notaFiscal/notaFiscalEdit">
-		<input name="notaFiscal" value="flowScope.notaFiscal"/>
-		<transition on="ok" to="ok" />
-		<transition on="cancel" to="index" />
-	</subflow-state>
 
 	<end-state id="sair"></end-state>
 </flow>

@@ -7,5 +7,17 @@
 			<file>src/main/webapp/WEB-INF/flows/index/index-flow.xml</file>
 			<name><![CDATA[index-flow]]></name>
 		</config>
+		<config>
+			<file>src/main/webapp/WEB-INF/flows/notafiscal/notafiscal-flow.xml</file>
+			<name><![CDATA[notafiscal-flow]]></name>
+		</config>
+		<config>
+			<file>src/main/webapp/WEB-INF/flows/pedido/pedido-flow.xml</file>
+			<name><![CDATA[pedido-flow]]></name>
+		</config>
+		<config>
+			<file>pom.xml</file>
+			<name><![CDATA[pom]]></name>
+		</config>
 	</configs>
 </webflow-project-description>

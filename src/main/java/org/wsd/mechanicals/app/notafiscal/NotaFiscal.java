@@ -10,12 +10,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 
-import org.wsd.mechanicals.app.contato.Contato;
 import org.wsd.mechanicals.app.pedido.Faturamento;
 import org.wsd.mechanicals.app.pedido.Pedido;
 import org.wsd.mechanicals.app.pedido.PedidoObserver;
@@ -41,10 +39,7 @@ public class NotaFiscal implements Serializable, PedidoObserver {
 	private Integer numero;
 
 	@OneToMany(mappedBy = "notaFiscal", cascade = CascadeType.ALL)
-	private List<Item> itens = Lists.newLinkedList();
-
-	@ManyToOne
-	private Contato contato;
+	private List<NotaFiscalItem> itens = Lists.newLinkedList();
 
 	NotaFiscal() {
 	}
@@ -82,7 +77,7 @@ public class NotaFiscal implements Serializable, PedidoObserver {
 		return Objects.toStringHelper(this).add("numero", numero).toString();
 	}
 
-	public NotaFiscal addItem(Item item) {
+	public NotaFiscal addItem(NotaFiscalItem item) {
 		checkNotNull(item, "Item não pode ser nulo.");
 		if (!itens.contains(item)) {
 			itens.add(item);
@@ -90,7 +85,7 @@ public class NotaFiscal implements Serializable, PedidoObserver {
 		return this;
 	}
 
-	public NotaFiscal removeItem(Item item) {
+	public NotaFiscal removeItem(NotaFiscalItem item) {
 		checkNotNull(item, "Item não pode ser nulo.");
 		if (itens.contains(item)) {
 			itens.remove(item);
@@ -122,16 +117,8 @@ public class NotaFiscal implements Serializable, PedidoObserver {
 		this.numero = numero;
 	}
 
-	public List<Item> getItens() {
+	public List<NotaFiscalItem> getItens() {
 		return ImmutableList.copyOf(itens);
-	}
-
-	public Contato getContato() {
-		return contato;
-	}
-
-	public void setContato(Contato contato) {
-		this.contato = contato;
 	}
 
 }

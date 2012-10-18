@@ -15,14 +15,6 @@
 						<p:message for="numero" />
 					</h:panelGrid>
 				</p:fieldset>
-				<p:fieldset id="contato" legend="Contato">
-					<h:panelGrid columns="2">
-						<h:outputLabel for="nomeContato" value="Nome do Contato:" />
-						<p:inputText id="nomeContato" value="#{notaFiscal.contato.nome}" />
-					</h:panelGrid>
-					<p:commandButton value="Buscar Contato" action="buscarContato"
-						immediate="true" update=":contato" oncomplete="contatoDialog.show();" />
-				</p:fieldset>
 				<p:spacer height="3" />
 				<p:commandButton value="Novo Item" action="novoItem"
 					oncomplete="itemDialog.show();" update=":itemForm" />
@@ -48,12 +40,6 @@
 			<p:commandButton value="Salvar" action="salvar" />
 			<p:commandButton value="Cancelar" action="cancelar" />
 		</h:form>
-
-		<p:dialog widgetVar="contatoDialog" modal="true"
-			header="Selecione o Contato">
-			<h:form id="contato">
-			</h:form>
-		</p:dialog>
 
 		<p:dialog widgetVar="itemDialog" modal="true"
 			header="Cadastro de Item" resizable="false">
