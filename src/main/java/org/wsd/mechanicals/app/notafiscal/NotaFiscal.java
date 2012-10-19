@@ -10,6 +10,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
@@ -17,6 +18,7 @@ import javax.validation.constraints.NotNull;
 import org.wsd.mechanicals.app.pedido.Faturamento;
 import org.wsd.mechanicals.app.pedido.Pedido;
 import org.wsd.mechanicals.app.pedido.PedidoObserver;
+import org.wsd.mechanicals.app.pessoa.Pessoa;
 import org.wsd.mechanicals.app.service.WebServiceReceita;
 
 import com.google.common.base.Objects;
@@ -41,6 +43,9 @@ public class NotaFiscal implements Serializable, PedidoObserver {
 	@OneToMany(mappedBy = "notaFiscal", cascade = CascadeType.ALL)
 	private List<NotaFiscalItem> itens = Lists.newLinkedList();
 
+	@ManyToOne()
+	private Pessoa cliente;
+	
 	NotaFiscal() {
 	}
 

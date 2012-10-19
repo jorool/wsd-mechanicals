@@ -26,6 +26,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeUtils;
+import org.wsd.mechanicals.app.pessoa.Pessoa;
 import org.wsd.mechanicals.app.pessoa.Vendedor;
 import org.wsd.mechanicals.app.produto.Produto;
 import org.wsd.mechanicals.app.quantidade.Ops;
@@ -54,7 +55,7 @@ public class Pedido implements Serializable {
 	@NotNull
 	private Integer numero;
 
-	private String nome;
+	private Pessoa cliente;
 
 	@Type(type = "estadoPedido")
 	EstadoPedido estadoPedido = EstadoPedido.ABERTO;
@@ -210,14 +211,6 @@ public class Pedido implements Serializable {
 
 	public void setVendedor(Vendedor vendedor) {
 		this.vendedor = vendedor;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	public static class QuantidadeZeroParaNuloMap implements Map<Produto, Quantidade> {

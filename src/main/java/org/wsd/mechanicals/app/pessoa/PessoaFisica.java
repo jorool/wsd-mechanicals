@@ -15,6 +15,9 @@ public class PessoaFisica extends Pessoa {
 	@Column(name = "nomeRazaoSocial", length = 60)
 	private String nome;
 
+	@Column(name = "cpfCnpj", length = 20)
+	private String cpf;
+	
 	PessoaFisica() {
 	}
 
